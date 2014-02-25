@@ -1,17 +1,24 @@
 #include <iostream>
 
+char convstr( char str[ ], int i, int num );
+
 int main ( )
 {
 	char str [ ] = "Conversely line";
-	int num = strlen( str );
+	const int num = strlen( str );
 	char Nstr[ num+1 ];
 	for(int i = 0; i < num; i++ )
 	{
-		Nstr[ i ] = str [ num - (i+1) ];
-		std::cout << i << " - " << str [ num - (i+1) ] << std::endl;
+		Nstr[ i ] = convstr( str, i, num );
 	}
-		Nstr[ num+1 ] = '\0';
+	
+	Nstr[ num+1 ] = '\0';
 	
 	std::cout << Nstr << std::endl;
 	return 0;
+}
+
+char convstr( char str[ ], int i, int num )
+{
+	return str [ num - (i+1) ];
 }
